@@ -2,7 +2,7 @@ import Stage from "./Stage";
 import Display from "./Display";
 import StartButton from "./StartButton";
 import {useState} from 'react';
-import { createStage } from "../gameHelpers";
+import { createStage, checkCollision } from "../gameHelpers";
 
 // Styled Components
 import { StyledBoardWrapper, StyledBoard } from "./styles/StyledBoard";
@@ -21,21 +21,33 @@ export default function CatchACrunk() {
     const [object, updateObjectPos, resetObject] = useObject();
     const [stage, setStage] =useStage(object);
 
-    console.log('re-render');
     
-    function moveObject(dir) {
-        updateObjectPos({x: dir, y:0})
+    const moveObject = dir => {
+        if (!checkCollision(object, stage, {x: dir, y: 0})) {
+            updateObjectPos({x: dir, y:0})
+        }
     }
 
     function startGame() {
         // Reset everything
         setStage(createStage());
         resetObject();
+        setGameOver(false);
        
     }
 
     function drop() {
+        if (!checkCollision(object, stage, {x: 0, y: 1})) {
+
         updateObjectPos({x:0, y: 1, collided: false})
+
+        } else {
+            if (object.pos.y < 1) {
+                setGameOver(true);
+                setDropTime(null);
+            }
+            updateObjectPos({ x:0 , y: 0, collided: true})
+        }
     }
 
     function dropObject() {

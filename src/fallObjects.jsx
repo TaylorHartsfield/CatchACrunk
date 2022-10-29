@@ -3,6 +3,8 @@ export const FALLOBJECTS = {
     0: {   
         shape: [
         [0,0,0],
+        [0,0,0],
+        [0,0,0]
        
     ],
         color: '0,0,0'
@@ -11,7 +13,9 @@ export const FALLOBJECTS = {
 
     C: {   
         shape: [
-        ['C'],
+        [0,'C',0],
+        [0,'C',0],
+        [0,'C',0]
         
     ],
         color: '220, 188, 220'
@@ -20,7 +24,9 @@ export const FALLOBJECTS = {
 
     B: {
         shape: [
-            ['B'],
+            [0,'C',0],
+            [0,'C',0],
+            [0,'C',0]
         ],
             color: '249,208,179'
     },
@@ -28,7 +34,9 @@ export const FALLOBJECTS = {
     L: {              
         shape: [
             
-            ['L']
+            [0,'C',0],
+            [0,'C',0],
+            [0,'C',0]
              
         ]
             ,

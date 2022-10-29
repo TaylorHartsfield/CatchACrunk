@@ -24,11 +24,17 @@ export const useStage = (object, resetObject) => {
                 });
             });
 
+            // Check if we collided
+
+            if(object.collided) {
+                resetObject()
+            }
+
             return newStage;
       };
       
       setStage(prev => updateStage(prev));
-    }, [object])
+    }, [object, resetObject])
 
 
     return [stage, setStage];
