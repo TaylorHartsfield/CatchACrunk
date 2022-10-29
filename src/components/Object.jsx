@@ -5,8 +5,8 @@ export default function Object({type}) {
 
     return (
         <StyledObject
-            type={'B'}
-            color={FALLOBJECTS['B'].color}>
+            type={type}
+            color={FALLOBJECTS[type].color}>
        
        </StyledObject>
     )
